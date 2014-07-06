@@ -10,3 +10,5 @@ Facilitates the creation of a single sprite sheet from multiple images which can
 *Animate a preview
 
 *Output as a single png file
+
+Video - http://youtu.be/1kNALd9YW9c
