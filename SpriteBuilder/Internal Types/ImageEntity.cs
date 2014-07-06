@@ -12,5 +12,7 @@
 
         public string Filename { get; set; }
 
+        public int Order { get; set; }
+
     }
 }
