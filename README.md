@@ -9,4 +9,4 @@ Facilitates the creation of a single sprite sheet from multiple images which can
 
 *Animate a preview
 
-*Out put as a single png file
+*Output as a single png file
