@@ -106,8 +106,9 @@ namespace SpriteBuilder
         {
             lock (this)
             {
+                if (lbxStaging.Items.Count <= 0) return;
                 var itemindex = lbxStaging.SelectedIndex;
-                StagedImageList.RemoveAt(itemindex);    
+                StagedImageList.RemoveAt(itemindex);
             }
         }
 
@@ -120,7 +121,7 @@ namespace SpriteBuilder
             int selectedIndex = myListBox.SelectedIndex;
             if (selectedIndex > 0 & selectedIndex != -1)
             {
-                
+
                 StagedImageList.Insert(selectedIndex - 1, (ImageEntity)myListBox.Items[selectedIndex]);
                 StagedImageList.RemoveAt(selectedIndex + 1);
                 myListBox.SelectedIndex = selectedIndex - 1;
@@ -167,17 +168,19 @@ namespace SpriteBuilder
 
         private void btnOutput_Click(object sender, EventArgs e)
         {
+            if (lbxStaging.Items.Count <= 0) return;
+
             // Output the preview stack as a full sprite sheet
             // set the columns and rows requested accordingly
             lbxLoaded.Enabled = false;
             lbxStaging.Enabled = false;
 
             var imgList = new List<Image>();
-            
 
-            
-            
-            
+
+
+
+
             //Bitmap bitmap = new Bitmap();
             // for now join images as one row
             int width = 0;
@@ -189,7 +192,7 @@ namespace SpriteBuilder
             }
 
             Bitmap bitmap = new Bitmap(width, imgList.First().Height);
-           
+
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 int runninglenght = 0;
@@ -212,8 +215,8 @@ namespace SpriteBuilder
                 bitmap.Dispose();
             }
 
-            
-            
+
+
             lbxLoaded.Enabled = true;
             lbxStaging.Enabled = true;
         }
